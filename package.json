@@ -1,0 +1,19 @@
+{
+  "name": "clocks",
+  "version": "0.0.1",
+  "description": "Framework for rendering animated clocks, inspired by A Million Clocks by Humans Since 1982",
+  "scripts": {
+    "clean-dist": "rm -rf ./dist && mkdir dist && ln assets/index.html dist/index.html",
+    "copy-assets": "cp -R ./assets/* ./dist",
+    "watch-js": "watchify   -t coffeeify -t cssify clocks-embed.coffee -v -o 'dist/clocks-embed.js'",
+    "build-js": "browserify -t coffeeify -t cssify clocks-embed.coffee | uglifyjs > dist/clocks-embed.js"
+  },
+  "devDependencies": {
+    "browserify": "^10.2.6",
+    "coffeeify": "^2.0.0",
+    "cssify": "^0.7.0",
+    "d3": "^3.5.11",
+    "uglify-js": "^2.4.24",
+    "watchify": "^3.2.3"
+  }
+}
